@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shortrent.myproject.generator.dao.HouseDao">
+  <resultMap id="BaseResultMap" type="com.shortrent.myproject.generator.model.House">
+    <id column="h_id" jdbcType="INTEGER" property="hId" />
+    <result column="h_delocation" jdbcType="VARCHAR" property="hDelocation" />
+    <result column="h_type" jdbcType="VARCHAR" property="hType" />
+    <result column="h_retype" jdbcType="VARCHAR" property="hRetype" />
+    <result column="h_area" jdbcType="VARCHAR" property="hArea" />
+    <result column="h_hutype" jdbcType="VARCHAR" property="hHutype" />
+    <result column="h_batype" jdbcType="VARCHAR" property="hBatype" />
+    <result column="h_bedinfo" jdbcType="VARCHAR" property="hBedinfo" />
+    <result column="h_sunum" jdbcType="INTEGER" property="hSunum" />
+    <result column="h_cohabitation" jdbcType="VARCHAR" property="hCohabitation" />
+    <result column="h_sihouse" jdbcType="VARCHAR" property="hSihouse" />
+    <result column="h_name" jdbcType="VARCHAR" property="hName" />
+    <result column="h_pedescription" jdbcType="VARCHAR" property="hPedescription" />
+    <result column="h_insituation" jdbcType="VARCHAR" property="hInsituation" />
+    <result column="h_traffic" jdbcType="VARCHAR" property="hTraffic" />
+    <result column="h_beside" jdbcType="VARCHAR" property="hBeside" />
+    <result column="h_bath" jdbcType="VARCHAR" property="hBath" />
+    <result column="h_electro" jdbcType="VARCHAR" property="hElectro" />
+    <result column="h_facilities" jdbcType="VARCHAR" property="hFacilities" />
+    <result column="h_spefac" jdbcType="VARCHAR" property="hSpefac" />
+    <result column="h_require" jdbcType="VARCHAR" property="hRequire" />
+    <result column="h_picture" jdbcType="VARCHAR" property="hPicture" />
+    <result column="h_price" jdbcType="VARCHAR" property="hPrice" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    h_id, h_delocation, h_type, h_retype, h_area, h_hutype, h_batype, h_bedinfo, h_sunum, 
+    h_cohabitation, h_sihouse, h_name, h_pedescription, h_insituation, h_traffic, h_beside, 
+    h_bath, h_electro, h_facilities, h_spefac, h_require, h_picture, h_price
+  </sql>
+  <select id="selectByExample" parameterType="com.shortrent.myproject.generator.model.HouseExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from house
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from house
+    where h_id = #{hId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from house
+    where h_id = #{hId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shortrent.myproject.generator.model.HouseExample">
+    delete from house
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="h_id" keyProperty="hId" parameterType="com.shortrent.myproject.generator.model.House" useGeneratedKeys="true">
+    insert into house (h_delocation, h_type, h_retype, 
+      h_area, h_hutype, h_batype, 
+      h_bedinfo, h_sunum, h_cohabitation, 
+      h_sihouse, h_name, h_pedescription, 
+      h_insituation, h_traffic, h_beside, 
+      h_bath, h_electro, h_facilities, 
+      h_spefac, h_require, h_picture, 
+      h_price)
+    values (#{hDelocation,jdbcType=VARCHAR}, #{hType,jdbcType=VARCHAR}, #{hRetype,jdbcType=VARCHAR}, 
+      #{hArea,jdbcType=VARCHAR}, #{hHutype,jdbcType=VARCHAR}, #{hBatype,jdbcType=VARCHAR}, 
+      #{hBedinfo,jdbcType=VARCHAR}, #{hSunum,jdbcType=INTEGER}, #{hCohabitation,jdbcType=VARCHAR}, 
+      #{hSihouse,jdbcType=VARCHAR}, #{hName,jdbcType=VARCHAR}, #{hPedescription,jdbcType=VARCHAR}, 
+      #{hInsituation,jdbcType=VARCHAR}, #{hTraffic,jdbcType=VARCHAR}, #{hBeside,jdbcType=VARCHAR}, 
+      #{hBath,jdbcType=VARCHAR}, #{hElectro,jdbcType=VARCHAR}, #{hFacilities,jdbcType=VARCHAR}, 
+      #{hSpefac,jdbcType=VARCHAR}, #{hRequire,jdbcType=VARCHAR}, #{hPicture,jdbcType=VARCHAR}, 
+      #{hPrice,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="h_id" keyProperty="hId" parameterType="com.shortrent.myproject.generator.model.House" useGeneratedKeys="true">
+    insert into house
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hDelocation != null">
+        h_delocation,
+      </if>
+      <if test="hType != null">
+        h_type,
+      </if>
+      <if test="hRetype != null">
+        h_retype,
+      </if>
+      <if test="hArea != null">
+        h_area,
+      </if>
+      <if test="hHutype != null">
+        h_hutype,
+      </if>
+      <if test="hBatype != null">
+        h_batype,
+      </if>
+      <if test="hBedinfo != null">
+        h_bedinfo,
+      </if>
+      <if test="hSunum != null">
+        h_sunum,
+      </if>
+      <if test="hCohabitation != null">
+        h_cohabitation,
+      </if>
+      <if test="hSihouse != null">
+        h_sihouse,
+      </if>
+      <if test="hName != null">
+        h_name,
+      </if>
+      <if test="hPedescription != null">
+        h_pedescription,
+      </if>
+      <if test="hInsituation != null">
+        h_insituation,
+      </if>
+      <if test="hTraffic != null">
+        h_traffic,
+      </if>
+      <if test="hBeside != null">
+        h_beside,
+      </if>
+      <if test="hBath != null">
+        h_bath,
+      </if>
+      <if test="hElectro != null">
+        h_electro,
+      </if>
+      <if test="hFacilities != null">
+        h_facilities,
+      </if>
+      <if test="hSpefac != null">
+        h_spefac,
+      </if>
+      <if test="hRequire != null">
+        h_require,
+      </if>
+      <if test="hPicture != null">
+        h_picture,
+      </if>
+      <if test="hPrice != null">
+        h_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hDelocation != null">
+        #{hDelocation,jdbcType=VARCHAR},
+      </if>
+      <if test="hType != null">
+        #{hType,jdbcType=VARCHAR},
+      </if>
+      <if test="hRetype != null">
+        #{hRetype,jdbcType=VARCHAR},
+      </if>
+      <if test="hArea != null">
+        #{hArea,jdbcType=VARCHAR},
+      </if>
+      <if test="hHutype != null">
+        #{hHutype,jdbcType=VARCHAR},
+      </if>
+      <if test="hBatype != null">
+        #{hBatype,jdbcType=VARCHAR},
+      </if>
+      <if test="hBedinfo != null">
+        #{hBedinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hSunum != null">
+        #{hSunum,jdbcType=INTEGER},
+      </if>
+      <if test="hCohabitation != null">
+        #{hCohabitation,jdbcType=VARCHAR},
+      </if>
+      <if test="hSihouse != null">
+        #{hSihouse,jdbcType=VARCHAR},
+      </if>
+      <if test="hName != null">
+        #{hName,jdbcType=VARCHAR},
+      </if>
+      <if test="hPedescription != null">
+        #{hPedescription,jdbcType=VARCHAR},
+      </if>
+      <if test="hInsituation != null">
+        #{hInsituation,jdbcType=VARCHAR},
+      </if>
+      <if test="hTraffic != null">
+        #{hTraffic,jdbcType=VARCHAR},
+      </if>
+      <if test="hBeside != null">
+        #{hBeside,jdbcType=VARCHAR},
+      </if>
+      <if test="hBath != null">
+        #{hBath,jdbcType=VARCHAR},
+      </if>
+      <if test="hElectro != null">
+        #{hElectro,jdbcType=VARCHAR},
+      </if>
+      <if test="hFacilities != null">
+        #{hFacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="hSpefac != null">
+        #{hSpefac,jdbcType=VARCHAR},
+      </if>
+      <if test="hRequire != null">
+        #{hRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="hPicture != null">
+        #{hPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="hPrice != null">
+        #{hPrice,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shortrent.myproject.generator.model.HouseExample" resultType="java.lang.Long">
+    select count(*) from house
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update house
+    <set>
+      <if test="record.hId != null">
+        h_id = #{record.hId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hDelocation != null">
+        h_delocation = #{record.hDelocation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hType != null">
+        h_type = #{record.hType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hRetype != null">
+        h_retype = #{record.hRetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hArea != null">
+        h_area = #{record.hArea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hHutype != null">
+        h_hutype = #{record.hHutype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hBatype != null">
+        h_batype = #{record.hBatype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hBedinfo != null">
+        h_bedinfo = #{record.hBedinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hSunum != null">
+        h_sunum = #{record.hSunum,jdbcType=INTEGER},
+      </if>
+      <if test="record.hCohabitation != null">
+        h_cohabitation = #{record.hCohabitation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hSihouse != null">
+        h_sihouse = #{record.hSihouse,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hName != null">
+        h_name = #{record.hName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hPedescription != null">
+        h_pedescription = #{record.hPedescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hInsituation != null">
+        h_insituation = #{record.hInsituation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hTraffic != null">
+        h_traffic = #{record.hTraffic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hBeside != null">
+        h_beside = #{record.hBeside,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hBath != null">
+        h_bath = #{record.hBath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hElectro != null">
+        h_electro = #{record.hElectro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hFacilities != null">
+        h_facilities = #{record.hFacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hSpefac != null">
+        h_spefac = #{record.hSpefac,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hRequire != null">
+        h_require = #{record.hRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hPicture != null">
+        h_picture = #{record.hPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hPrice != null">
+        h_price = #{record.hPrice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update house
+    set h_id = #{record.hId,jdbcType=INTEGER},
+      h_delocation = #{record.hDelocation,jdbcType=VARCHAR},
+      h_type = #{record.hType,jdbcType=VARCHAR},
+      h_retype = #{record.hRetype,jdbcType=VARCHAR},
+      h_area = #{record.hArea,jdbcType=VARCHAR},
+      h_hutype = #{record.hHutype,jdbcType=VARCHAR},
+      h_batype = #{record.hBatype,jdbcType=VARCHAR},
+      h_bedinfo = #{record.hBedinfo,jdbcType=VARCHAR},
+      h_sunum = #{record.hSunum,jdbcType=INTEGER},
+      h_cohabitation = #{record.hCohabitation,jdbcType=VARCHAR},
+      h_sihouse = #{record.hSihouse,jdbcType=VARCHAR},
+      h_name = #{record.hName,jdbcType=VARCHAR},
+      h_pedescription = #{record.hPedescription,jdbcType=VARCHAR},
+      h_insituation = #{record.hInsituation,jdbcType=VARCHAR},
+      h_traffic = #{record.hTraffic,jdbcType=VARCHAR},
+      h_beside = #{record.hBeside,jdbcType=VARCHAR},
+      h_bath = #{record.hBath,jdbcType=VARCHAR},
+      h_electro = #{record.hElectro,jdbcType=VARCHAR},
+      h_facilities = #{record.hFacilities,jdbcType=VARCHAR},
+      h_spefac = #{record.hSpefac,jdbcType=VARCHAR},
+      h_require = #{record.hRequire,jdbcType=VARCHAR},
+      h_picture = #{record.hPicture,jdbcType=VARCHAR},
+      h_price = #{record.hPrice,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shortrent.myproject.generator.model.House">
+    update house
+    <set>
+      <if test="hDelocation != null">
+        h_delocation = #{hDelocation,jdbcType=VARCHAR},
+      </if>
+      <if test="hType != null">
+        h_type = #{hType,jdbcType=VARCHAR},
+      </if>
+      <if test="hRetype != null">
+        h_retype = #{hRetype,jdbcType=VARCHAR},
+      </if>
+      <if test="hArea != null">
+        h_area = #{hArea,jdbcType=VARCHAR},
+      </if>
+      <if test="hHutype != null">
+        h_hutype = #{hHutype,jdbcType=VARCHAR},
+      </if>
+      <if test="hBatype != null">
+        h_batype = #{hBatype,jdbcType=VARCHAR},
+      </if>
+      <if test="hBedinfo != null">
+        h_bedinfo = #{hBedinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hSunum != null">
+        h_sunum = #{hSunum,jdbcType=INTEGER},
+      </if>
+      <if test="hCohabitation != null">
+        h_cohabitation = #{hCohabitation,jdbcType=VARCHAR},
+      </if>
+      <if test="hSihouse != null">
+        h_sihouse = #{hSihouse,jdbcType=VARCHAR},
+      </if>
+      <if test="hName != null">
+        h_name = #{hName,jdbcType=VARCHAR},
+      </if>
+      <if test="hPedescription != null">
+        h_pedescription = #{hPedescription,jdbcType=VARCHAR},
+      </if>
+      <if test="hInsituation != null">
+        h_insituation = #{hInsituation,jdbcType=VARCHAR},
+      </if>
+      <if test="hTraffic != null">
+        h_traffic = #{hTraffic,jdbcType=VARCHAR},
+      </if>
+      <if test="hBeside != null">
+        h_beside = #{hBeside,jdbcType=VARCHAR},
+      </if>
+      <if test="hBath != null">
+        h_bath = #{hBath,jdbcType=VARCHAR},
+      </if>
+      <if test="hElectro != null">
+        h_electro = #{hElectro,jdbcType=VARCHAR},
+      </if>
+      <if test="hFacilities != null">
+        h_facilities = #{hFacilities,jdbcType=VARCHAR},
+      </if>
+      <if test="hSpefac != null">
+        h_spefac = #{hSpefac,jdbcType=VARCHAR},
+      </if>
+      <if test="hRequire != null">
+        h_require = #{hRequire,jdbcType=VARCHAR},
+      </if>
+      <if test="hPicture != null">
+        h_picture = #{hPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="hPrice != null">
+        h_price = #{hPrice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shortrent.myproject.generator.model.House">
+    update house
+    set h_delocation = #{hDelocation,jdbcType=VARCHAR},
+      h_type = #{hType,jdbcType=VARCHAR},
+      h_retype = #{hRetype,jdbcType=VARCHAR},
+      h_area = #{hArea,jdbcType=VARCHAR},
+      h_hutype = #{hHutype,jdbcType=VARCHAR},
+      h_batype = #{hBatype,jdbcType=VARCHAR},
+      h_bedinfo = #{hBedinfo,jdbcType=VARCHAR},
+      h_sunum = #{hSunum,jdbcType=INTEGER},
+      h_cohabitation = #{hCohabitation,jdbcType=VARCHAR},
+      h_sihouse = #{hSihouse,jdbcType=VARCHAR},
+      h_name = #{hName,jdbcType=VARCHAR},
+      h_pedescription = #{hPedescription,jdbcType=VARCHAR},
+      h_insituation = #{hInsituation,jdbcType=VARCHAR},
+      h_traffic = #{hTraffic,jdbcType=VARCHAR},
+      h_beside = #{hBeside,jdbcType=VARCHAR},
+      h_bath = #{hBath,jdbcType=VARCHAR},
+      h_electro = #{hElectro,jdbcType=VARCHAR},
+      h_facilities = #{hFacilities,jdbcType=VARCHAR},
+      h_spefac = #{hSpefac,jdbcType=VARCHAR},
+      h_require = #{hRequire,jdbcType=VARCHAR},
+      h_picture = #{hPicture,jdbcType=VARCHAR},
+      h_price = #{hPrice,jdbcType=VARCHAR}
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+</mapper>

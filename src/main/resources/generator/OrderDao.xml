@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shortrent.myproject.generator.dao.OrderDao">
+  <resultMap id="BaseResultMap" type="com.shortrent.myproject.generator.model.Order">
+    <id column="o_id" jdbcType="INTEGER" property="oId" />
+    <result column="o_applicant" jdbcType="INTEGER" property="oApplicant" />
+    <result column="o_acceptor" jdbcType="INTEGER" property="oAcceptor" />
+    <result column="o_houseid" jdbcType="INTEGER" property="oHouseid" />
+    <result column="o_amount" jdbcType="INTEGER" property="oAmount" />
+    <result column="o_status" jdbcType="VARCHAR" property="oStatus" />
+    <result column="o_starttime" jdbcType="TIMESTAMP" property="oStarttime" />
+    <result column="o_endtime" jdbcType="TIMESTAMP" property="oEndtime" />
+    <result column="o_capitalnumber" jdbcType="INTEGER" property="oCapitalnumber" />
+    <result column="o_paymentnumber" jdbcType="INTEGER" property="oPaymentnumber" />
+    <result column="o_reason" jdbcType="VARCHAR" property="oReason" />
+    <result column="o_message" jdbcType="VARCHAR" property="oMessage" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    o_id, o_applicant, o_acceptor, o_houseid, o_amount, o_status, o_starttime, o_endtime, 
+    o_capitalnumber, o_paymentnumber, o_reason, o_message
+  </sql>
+  <select id="selectByExample" parameterType="com.shortrent.myproject.generator.model.OrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from order
+    where o_id = #{oId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shortrent.myproject.generator.model.OrderExample">
+    delete from order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" keyColumn="o_id" keyProperty="oId" parameterType="com.shortrent.myproject.generator.model.Order" useGeneratedKeys="true">
+    insert into order (o_applicant, o_acceptor, o_houseid, 
+      o_amount, o_status, o_starttime, 
+      o_endtime, o_capitalnumber, o_paymentnumber, 
+      o_reason, o_message)
+    values (#{oApplicant,jdbcType=INTEGER}, #{oAcceptor,jdbcType=INTEGER}, #{oHouseid,jdbcType=INTEGER}, 
+      #{oAmount,jdbcType=INTEGER}, #{oStatus,jdbcType=VARCHAR}, #{oStarttime,jdbcType=TIMESTAMP}, 
+      #{oEndtime,jdbcType=TIMESTAMP}, #{oCapitalnumber,jdbcType=INTEGER}, #{oPaymentnumber,jdbcType=INTEGER}, 
+      #{oReason,jdbcType=VARCHAR}, #{oMessage,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="o_id" keyProperty="oId" parameterType="com.shortrent.myproject.generator.model.Order" useGeneratedKeys="true">
+    insert into order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="oApplicant != null">
+        o_applicant,
+      </if>
+      <if test="oAcceptor != null">
+        o_acceptor,
+      </if>
+      <if test="oHouseid != null">
+        o_houseid,
+      </if>
+      <if test="oAmount != null">
+        o_amount,
+      </if>
+      <if test="oStatus != null">
+        o_status,
+      </if>
+      <if test="oStarttime != null">
+        o_starttime,
+      </if>
+      <if test="oEndtime != null">
+        o_endtime,
+      </if>
+      <if test="oCapitalnumber != null">
+        o_capitalnumber,
+      </if>
+      <if test="oPaymentnumber != null">
+        o_paymentnumber,
+      </if>
+      <if test="oReason != null">
+        o_reason,
+      </if>
+      <if test="oMessage != null">
+        o_message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="oApplicant != null">
+        #{oApplicant,jdbcType=INTEGER},
+      </if>
+      <if test="oAcceptor != null">
+        #{oAcceptor,jdbcType=INTEGER},
+      </if>
+      <if test="oHouseid != null">
+        #{oHouseid,jdbcType=INTEGER},
+      </if>
+      <if test="oAmount != null">
+        #{oAmount,jdbcType=INTEGER},
+      </if>
+      <if test="oStatus != null">
+        #{oStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="oStarttime != null">
+        #{oStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oEndtime != null">
+        #{oEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oCapitalnumber != null">
+        #{oCapitalnumber,jdbcType=INTEGER},
+      </if>
+      <if test="oPaymentnumber != null">
+        #{oPaymentnumber,jdbcType=INTEGER},
+      </if>
+      <if test="oReason != null">
+        #{oReason,jdbcType=VARCHAR},
+      </if>
+      <if test="oMessage != null">
+        #{oMessage,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shortrent.myproject.generator.model.OrderExample" resultType="java.lang.Long">
+    select count(*) from order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update order
+    <set>
+      <if test="record.oId != null">
+        o_id = #{record.oId,jdbcType=INTEGER},
+      </if>
+      <if test="record.oApplicant != null">
+        o_applicant = #{record.oApplicant,jdbcType=INTEGER},
+      </if>
+      <if test="record.oAcceptor != null">
+        o_acceptor = #{record.oAcceptor,jdbcType=INTEGER},
+      </if>
+      <if test="record.oHouseid != null">
+        o_houseid = #{record.oHouseid,jdbcType=INTEGER},
+      </if>
+      <if test="record.oAmount != null">
+        o_amount = #{record.oAmount,jdbcType=INTEGER},
+      </if>
+      <if test="record.oStatus != null">
+        o_status = #{record.oStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oStarttime != null">
+        o_starttime = #{record.oStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.oEndtime != null">
+        o_endtime = #{record.oEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.oCapitalnumber != null">
+        o_capitalnumber = #{record.oCapitalnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.oPaymentnumber != null">
+        o_paymentnumber = #{record.oPaymentnumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.oReason != null">
+        o_reason = #{record.oReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oMessage != null">
+        o_message = #{record.oMessage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update order
+    set o_id = #{record.oId,jdbcType=INTEGER},
+      o_applicant = #{record.oApplicant,jdbcType=INTEGER},
+      o_acceptor = #{record.oAcceptor,jdbcType=INTEGER},
+      o_houseid = #{record.oHouseid,jdbcType=INTEGER},
+      o_amount = #{record.oAmount,jdbcType=INTEGER},
+      o_status = #{record.oStatus,jdbcType=VARCHAR},
+      o_starttime = #{record.oStarttime,jdbcType=TIMESTAMP},
+      o_endtime = #{record.oEndtime,jdbcType=TIMESTAMP},
+      o_capitalnumber = #{record.oCapitalnumber,jdbcType=INTEGER},
+      o_paymentnumber = #{record.oPaymentnumber,jdbcType=INTEGER},
+      o_reason = #{record.oReason,jdbcType=VARCHAR},
+      o_message = #{record.oMessage,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shortrent.myproject.generator.model.Order">
+    update order
+    <set>
+      <if test="oApplicant != null">
+        o_applicant = #{oApplicant,jdbcType=INTEGER},
+      </if>
+      <if test="oAcceptor != null">
+        o_acceptor = #{oAcceptor,jdbcType=INTEGER},
+      </if>
+      <if test="oHouseid != null">
+        o_houseid = #{oHouseid,jdbcType=INTEGER},
+      </if>
+      <if test="oAmount != null">
+        o_amount = #{oAmount,jdbcType=INTEGER},
+      </if>
+      <if test="oStatus != null">
+        o_status = #{oStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="oStarttime != null">
+        o_starttime = #{oStarttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oEndtime != null">
+        o_endtime = #{oEndtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="oCapitalnumber != null">
+        o_capitalnumber = #{oCapitalnumber,jdbcType=INTEGER},
+      </if>
+      <if test="oPaymentnumber != null">
+        o_paymentnumber = #{oPaymentnumber,jdbcType=INTEGER},
+      </if>
+      <if test="oReason != null">
+        o_reason = #{oReason,jdbcType=VARCHAR},
+      </if>
+      <if test="oMessage != null">
+        o_message = #{oMessage,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shortrent.myproject.generator.model.Order">
+    update order
+    set o_applicant = #{oApplicant,jdbcType=INTEGER},
+      o_acceptor = #{oAcceptor,jdbcType=INTEGER},
+      o_houseid = #{oHouseid,jdbcType=INTEGER},
+      o_amount = #{oAmount,jdbcType=INTEGER},
+      o_status = #{oStatus,jdbcType=VARCHAR},
+      o_starttime = #{oStarttime,jdbcType=TIMESTAMP},
+      o_endtime = #{oEndtime,jdbcType=TIMESTAMP},
+      o_capitalnumber = #{oCapitalnumber,jdbcType=INTEGER},
+      o_paymentnumber = #{oPaymentnumber,jdbcType=INTEGER},
+      o_reason = #{oReason,jdbcType=VARCHAR},
+      o_message = #{oMessage,jdbcType=VARCHAR}
+    where o_id = #{oId,jdbcType=INTEGER}
+  </update>
+</mapper>
