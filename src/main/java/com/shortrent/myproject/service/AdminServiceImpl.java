@@ -2,9 +2,14 @@ package com.shortrent.myproject.service;
 
 import com.shortrent.myproject.generator.dao.AdminDao;
 import com.shortrent.myproject.generator.model.Admin;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 import javax.annotation.Resource;
+@Slf4j
+@Service
 
 public class AdminServiceImpl implements AdminService {
 

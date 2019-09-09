@@ -2,10 +2,14 @@ package com.shortrent.myproject.service;
 
 import com.shortrent.myproject.generator.dao.HURelateDao;
 import com.shortrent.myproject.generator.model.HURelate;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Slf4j
+@Service
 public class HURelateServiceImpl implements HURelateService {
     @Resource
     HURelateDao huRelateDao;

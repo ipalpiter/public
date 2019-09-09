@@ -2,10 +2,14 @@ package com.shortrent.myproject.service;
 
 import com.shortrent.myproject.generator.dao.CommentDao;
 import com.shortrent.myproject.generator.model.Comment;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Slf4j
+@Service
 public class CommentServiceImpl implements CommentService{
 
     @Resource
