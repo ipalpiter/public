@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房客中心——密码修改</title>
+    <style>
+        .button {
+            background-color:darkorange; /* Green */
+            border: none;
+            color: white;
+            /*padding: 15px 32px;*/
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            /*margin: 4px 2px;*/
+            cursor: pointer;
+            width: max-content;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid darkorange;
+        }
+        .button2 {
+            background-color: white;
+            color: black;
+            border: 2px solid darkorange;
+        }
+
+        .button2:hover {
+            background-color: darkorange;
+            color: white;
+        }
+        </style>
+</head>
+<body>
+<ul class="breadcrumb" style="color: darkorange">
+    <li><a href="#" style="color: darkorange">我是房客</a></li>
+   <!-- <li><a href="#" style="color: darkorange">我的设置</a></li>-->
+    <li class="active">密码修改</li>
+</ul>
+<h1>密码修改</h1>
+<form style="color: darkorange">
+    <table border="0">
+        <tr>
+            <th>已验证手机：</th><td height="50px">插入已验证的手机号</td>
+        </tr>
+        <tr>
+            <th>邮箱验证码：</th><td height="50px"><input type="text" placeholder="请输入邮箱验证码" ><button type="button" class="button button1" >获取邮箱验证码</button> </td>
+        </tr>
+        <tr>
+            <th>新密码：</th><td height="50px"><input type="text" name="usr_password" placeholder="请输入新密码"></td>
+        </tr>
+        <tr>
+            <th height="50px"><button type="button" class="button button2" >确认</button></th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

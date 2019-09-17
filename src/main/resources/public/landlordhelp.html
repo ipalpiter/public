@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>房东指南</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* Custom Styles */
+        ul.nav-tabs{
+            width: 200px;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+        }
+        ul.nav-tabs li{
+            margin: 0;
+            border-top: 1px solid #ddd;
+        }
+        ul.nav-tabs li:first-child{
+            border-top: none;
+        }
+        ul.nav-tabs li a{
+            margin: 0;
+            padding: 8px 16px;
+            border-radius: 0;
+            color: darkorange;
+        }
+        ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+            color: #fff;
+            background: darkorange;
+            border: 1px solid darkorange;
+        }
+        ul.nav-tabs li:first-child a{
+            border-radius: 4px 4px 0 0;
+        }
+        ul.nav-tabs li:last-child a{
+            border-radius: 0 0 4px 4px;
+        }
+        ul.nav-tabs.affix{
+            top: 30px; /* Set the top position of pinned element */
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#myNav").affix({
+                offset: {
+                    top: 125
+                }
+            });
+        });
+    </script>
+</head>
+<style type="text/css">
+    .container{
+        padding-top: 60px;
+    }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy">
+<style type="text/css">.navbar{background: darkorange;}</style>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#" style="color: white"><span class="glyphicon glyphicon-home"></span>纯粹短租——纯粹干净看得见！</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">此处应获取用户名<strong class="caret"></strong></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">房东中心</a>
+                    </li>
+                    <li>
+                        <a href="#">房客中心</a>
+                    </li>
+                    <li>
+                        <a href="#">退出登录</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-default" formaction="#" style="color:darkorange;" >免费发布房间</button>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1 style="color: darkorange">房东指南</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+                <li class="active"><a href="#section-1">分享让生活充满期待</a></li>
+                <li><a href="#section-2">为房客准备一套好房子</a></li>
+                <li><a href="#section-3">在纯粹网发布您的房子</a></li>
+                <li><a href="#section-4">开启您的待客之旅</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <h2 id="section-1">分享让生活充满期待</h2>
+            <p><h3>一、分享可结识五湖四海的朋友。</h3></p>
+            <p>分享自己闲置的房间或房屋，在家里像酒店一样接待房客，能结识来自五湖四海的陌生朋友。在这里，您能遇上志同道合的朋友，也能领略五湖四海的风土人情。可以对陌生人一个温暖的拥抱，一个善意的微笑，可以一起聊聊您所熟悉的城市，也可以分享房客一路走来的有趣经历。用一间房让彼此信任，这岂不是分享的真谛么。</p>
+            <p><h3>二、分享可获得额外的收益</h3></p>
+            <p>在这里，曾经闲置的房源不再沉默，能获得额外的收益哦。</p>
+            <p>您可以以更灵活的方式变现，按天出租，经营更灵活。</p>
+            <p>和长租相比，赚得多，平均收益更高，在我们纯粹短租网，有很多房东获得了比长租高3倍以上的可观收益。</p>
+            <p>担心毁房子？</p>
+            <p>不用担心，房间自己打理，比长租更好的保护您的房子。</p>
+            <p><h3>三、分享有顾虑？</h3></p>
+            <p>纯粹网构建了一套完善的安全机制和信用机制，确保您分享无忧。</p>
+            <p>1、为什么要进行身份验证？</p>
+            <p>我们相信，彼此的信任是建立在使每个人放心的安全机制上，充分的身份验证机制，会保证我们平台更加安全可靠。</p>
+            <p>2、让房客无忧</p>
+            <p>所有房东手机号码、邮箱等都是真实可信的。并且我们拥有一套完善的验证机制，会人工审核房东的真实姓名、真实面孔、身份证等信息，现在大多数房东已经验证了身份，我们会致力于将此机制推广到全部房东中。</p>
+            <p>3、让房东无忧</p>
+            <p>在线交易的房客都会经过三重实名验证：首先，我们会验证房客绑定的手机号码，其次，交易会绑定房客银行卡的实名身份，最重要的是房客都会通过国家二代身份证验证系统进行验证，来确保房客的真实性。</p>
+            <p>4、身份隐私如何保证？</p>
+            <p>隐私权是用户的重要权力，我们非常重视用户的隐私权，承诺在任何情况下都会对用户的身份隐私进行保护。</p>
+            <hr>
+            <h2 id="section-2">为房客准备一套房子——好房子必备的三大要素</h2>
+            <p><h3>1、好地段的房源</h3></p>
+            <p>很多房客对入住房源的地理位置和交通便利程度非常关注，如您要出租的房源位于下列的地段周边且交通便利，那么出租的概率将会大大增加。</p>
+
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="/beijingcbd.jpg"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>所在城市的核心商圈</p></div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="/chengdu.jpg"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>所在城市的重要的景点</p></div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="/yanda.png"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>所在城市的知名学校</p></div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img src="/taiyuanzhan.jpg"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>各城市的交通枢纽</p></div>
+                    </a>
+                </div>
+            </div>
+            <p><h3>2、房子所在的小区环境较好</h3></p>
+            <p>无论是您还是房客，都不希望出现任何不安全的状况，故建议您需要考虑小区的环境。建议您选择安全防范措施好、安静、绿化环境较好的小区。</p>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="thumbnail">
+                        <img src="/xiaoqu1.jpg"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>小区环境优美</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="thumbnail">
+                        <img src="/xiaoqu2.jpg"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>夜晚安静整洁</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p><h3>选择基础质量较好的房子，优先选择有特色的房源</h3></p>
+            <p>在成本合适的情况下，尽量选择装修较好的房源，如近5年新近装修的，或曾经精装修的。优先考虑装修有特色的房源，如四合院、海景房、江景房、山景房等。</p>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="thumbnail">
+                        <img src="/haijing1.jpg"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>海景房</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="thumbnail">
+                        <img src="/shanjing.jpg"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <p>山景房</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <h2 id="section-3">在纯粹网发布您的房子</h2>
+            <p><h3>房源发布流程</h3></p>
+            <p></p>
+            <hr>
+            <h2 id="section-4">开启您的待客之旅</h2>
+            <p><h3>及时在线回复房客资询</h3></p>
+            <p>1、什么是咨询？</p>
+            <p>咨询是指：房客与房东的在线即时沟通的过程，类似于淘宝的旺旺，可以帮助房东及房客相互了解及决策。</p>
+            <p>2、谁可以发起咨询？</p>
+            <p>房客可以发起咨询——房客在按照自己的需求，在寻找到意向房源后，通常会发起咨询，向您询问一些关于入住时间、费用、地理位置之类的问题，也会和您聊聊关于当地天气、文化、生活习惯。房客点击您头像下方的“在线聊天”，即可和您在线沟通。</p>
+            <p>房东也可以发起咨询——有部分房客没有发起咨询，但为了更好的了解房客需求，有效的筛选房客，还请您主动和房客聊聊天。您可在房客订单详情中找到房客的名称，并发起咨询。</p>
+            <p>3、房东回复咨询</p>
+            <p>房客发起咨询后，会充满期待的等着您的回复，所以还请及时周到的回复。</p>
+            <p>如碰巧您不在电脑边，我们会以短信的方式提醒您。建议您按照以下原则和房客沟通：</p>
+            <p>(1)充分了解房客信息</p>
+            <p>入住人数、天数、性别、年龄、职业、目的地、出行方式、每日出门或回家时间、出行目的等等。</p>
+            <p>入住中可能产生的额外费用应在房客咨询时明确告知房客，凡答应房客的，应主动做到不失信于房客。了解房客对入住环境以及条件的需求，如：网络、洗澡、洗衣、做饭等。</p>
+            <p>(2)积极、耐心的回答房客提出的问题</p>
+            <p>应积极解答房客的问题，注意沟通中房客的语气，尽量从房客的角度考虑问题。对于房客的一些顾虑，沟通的关键是及时、礼貌、友好、主动、耐心，如遇不能满足您入住要求的房客，需礼貌回绝，不得与房客争吵谩骂等等。</p>
+            <p>(3)保护隐私，在订单成交之前不要透露联系方式、详细地址等信息，也请您不要索要房客联络方式信息。为保护用户隐私，系统将自动屏蔽联系方式。</p>
+            <hr>
+        </div>
+    </div>
+</div>
+</body>
+</html>

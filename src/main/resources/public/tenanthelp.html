@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title style="color: darkorange;">房客指南</title>
+</head>
+
+<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    /* Custom Styles */
+    ul.nav-tabs{
+        width: 200px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+    }
+    ul.nav-tabs li{
+        margin: 0;
+        border-top: 1px solid #ddd;
+    }
+    ul.nav-tabs li:first-child{
+        border-top: none;
+    }
+    ul.nav-tabs li a{
+        margin: 0;
+        padding: 8px 16px;
+        border-radius: 0;
+        color: darkorange;
+    }
+    ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+        color: #fff;
+        background: darkorange;
+        border: 1px solid darkorange;
+    }
+    ul.nav-tabs li:first-child a{
+        border-radius: 4px 4px 0 0;
+    }
+    ul.nav-tabs li:last-child a{
+        border-radius: 0 0 4px 4px;
+    }
+    ul.nav-tabs.affix{
+        top: 30px; /* Set the top position of pinned element */
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $("#myNav").affix({
+            offset: {
+                top: 125
+            }
+        });
+    });
+</script>
+</head>
+<style type="text/css">
+    .container{
+        padding-top: 60px;
+    }
+</style>
+<body data-spy="scroll" data-target="#myScrollspy">
+<style type="text/css">.navbar{background: darkorange;}</style>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#" style="color: white"><span class="glyphicon glyphicon-home"></span>纯粹短租——纯粹干净看得见！</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">此处应获取用户名<strong class="caret"></strong></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">房东中心</a>
+                    </li>
+                    <li>
+                        <a href="#">房客中心</a>
+                    </li>
+                    <li>
+                        <a href="#">退出登录</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-default" formaction="#" style="color:darkorange;" >免费发布房间</button>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1 style="color: darkorange">房客指南</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-3" id="myScrollspy">
+            <ul class="nav nav-tabs nav-stacked" id="myNav">
+                <li class="active"><a href="#section-1">独特的房间和预定</a></li>
+                <li><a href="#section-2">入住、评价和分享</a></li>
+                <li><a href="#section-3">安全完备的保障</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-9">
+            <h2 id="section-1">独特的房间和预定</h2>
+            <p>纯粹短租网是一个基于分享经济的社交住宿平台。在这里，您将有机会住进一个陌生朋友家中，价格不到酒店的一半，却像在自己家里一样舒适和方便，我们会让您拥有一次不同寻常的旅行体验。</p>
+            <p><h3>一、独一无二的房间</h3></p>
+            <p>与您使用过的其他住宿预订平台不一样的是，我们网站上所有的房间都是由房东自己发布和独立管理的，每个房间都是独一无二的。这些房间的价格通常比同地区快捷酒店价格便宜一半以上，大部分房源入住后会和房东住在一起，可以做饭和洗衣服，设施和用品也更有“家”的感觉。</p>
+            <p><h3>二、输入日期搜索和拆单</h3></p>
+            <p>网站上大部分房间都只有一套，按照出行日期搜索可以查看所有符合您要求的房间。如果您的出行计划有弹性，也可以试试调整出行日期搜索，有时候可能会有惊喜，当然，更早的出行计划而不是临时抱佛脚，会有更多好的房间供您挑选。</p>
+            <p>如果您的出行的时间比较长，比如一周或者更长时间，您心仪的房间也许不能满足您的预定要求，尤其是出行旺季更是如此。拆开时间搜索和预定可能是个好主意，这样做的好处除了可以搬家锻炼身体外，还可以认识更多的朋友。</p>
+            <p>和长租相比，赚得多，平均收益更高，在我们纯粹短租网，有很多房东获得了比长租高3倍以上的可观收益。</p>
+            <p><h3>三、善用过滤条件和地图搜索</h3></p>
+            <p>使用地图搜索可以帮您以更直观、精确的查看房源所在位置的方式进行搜索和比较。如果您了解将要去的地方，可以在搜索框中点击或输入您所知道的交通枢纽、商圈或景点名称，通过各种过滤条件结合，可以让您更快寻找到合适的房间。</p>
+            <p><h3>在线沟通、下单、房东确认和付款</h3></p>
+            <p>您在网站上选好中意的房间并下单后，是需要等待房东确认后方可付款的。因此，与房东适当的在线沟通非常必要。有效的在线沟通可以帮助您进一步了解房子的详细信息，如果您主动向房东介绍自己，同时告知对方您的行程目的和计划，房东也可以借此更了解您，因而也更容易接收您的预定要求。</p>
+            <hr>
+            <h2 id="section-2">入住、评价和分享</h2>
+            <p>背上行囊，踏上旅途，在另一个陌生的城市，会有一个从未谋面的朋友在等着你入住他的家中，这样的场景不禁让人充满期待。但在您将要住进别人家里，体验居住自由主义之前，我们还有些建议给您。</p>
+            <p><h3>一、入住前联系房东</h3></p>
+            <p>我们建议您在入住前一天或两天再次联系房东，告知您将要到达的准确时间，同时了解当地的天气，了解如何到达住处，也可以提醒房东做好接待准备。</p>
+            <p><h3>二、与房东沟通</h3></p>
+            <p>每一个朋友的相识都是缘分，如果有可能，希望您和房东一起聊聊天。您可以通过房东了解当地的风土人情，小吃美食，还有那些只有当地人才知道的关于那座城市的秘密。您和房东还可以互相分享各自的旅行经历或读书感悟，一起做几道拿手菜。总之，真诚、坦率的相互沟通，总是受人欢迎的。</p>
+            <p><h3>三、按照房东的要求使用空间及设施</h3></p>
+            <p>入住期间请尊重房东的隐私，合理的使用公共区域以及保持您入住空间的基本整洁，这些都是非常礼貌和必要的。同时还希望您能尊重房东的作息时间及生活习惯，尊重他们的邻居及所在社区的公共秩序，不在未经房东确认的情况下带朋友来住处，火灾房间内吸烟、酗酒、聚会和饲养宠物等。</p>
+            <p><h3>入住完成后及时评价</h3></p>
+            <p>在您入住完成后，您可以对房东和房间进行评价并记录自己的真实入住感受，这些评价能帮助其他房客了解房间和房东。同时房东也可以对您进行评价，其他房东可以藉由这些评价来了解您。因此，希望您珍惜每次的入住机会，重视自己的交易记录。做一个受欢迎的房客。</p>
+            <p><h3>有机会您也可以试试当地主</h3></p>
+            <p>很多体验过纯粹网的房客后来都成了房东，开始分享自己的住处，获得一份不错收益的同时也结交了来自五湖四海额朋友，这的确是一件开心的事情。如果您也有闲置的房间或房屋，甚至一个床位或沙发，我们也希望您一起加入我们做房东，体验分享的乐趣。如果您想了解如何成为房东和如何发布自己的房源，请点击<a href="landlordhelp.html">房东指南</a> 。</p>
+            <h2 id="section-3">安全完备的保障</h2>
+            <p>作为一个社交住宿担保交易平台，自我们上线以来，已有数十万的房客完成入住，我们充分理解您对住进一个陌生人家中的担忧，并为此做了大量工作来保障您整个交易与入住过程的安全性。</p>
+            <p><h3>一、“无忧入住”房客保障计划</h3></p>
+            <p>当您在纯粹网上完成预订并付款成交后，作为担保交易平台，我们将对以下内容提供保障：</p>
+            <p>-----保障线下留房：如果房东违约，不能按照订单约定为您提供入住，或入住时无法联系到房东，我们将会提供保障，协调房东解决或帮您预订附近的其他住处，帮您找到满意的住所。</p>
+            <p>-----保障图片和描述与实际相符：在您入住后，如发现实际房间与页面上的图片或描述严重不符，或承诺的设施不可用，或收取未注明的额外费用，我们将会提供保障，直到您满意为止；</p>
+            <p><h3>房客保险</h3></p>
+            <p>无论是国内出行还是到海外出行，我们都为房客提供了保险服务。只要身份信息完整还可以免费获赠保险，免除双方的后顾之忧。</p>
+            <p><h3>在线交易的重要性</h3></p>
+            <p>在纯粹网上下单预订并入住，是以上保障计划得以实施的结果，我们只能对您在纯粹网上完成的交易进行保障，未在网站上完成的交易，我们是无法提供保障的，因此，希望您所有交易在线上完成。</p>
+            <hr>
+        </div>
+    </div>
+</div>
+</body>
+</html>

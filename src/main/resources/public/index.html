@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>首页</title>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        #myCarousel  .carousel-inner > .item > img {
+            display: block;
+            width:100%;
+            height:750px;
+        }
+    </style>
+    <script>
+        $(document).ready(function ()
+        {
+            var check1 = document.getElementById("phone")
+            $(button1).click(function () {
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+<style type="text/css">.navbar{background: darkorange;}</style>
+​
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+
+            <a class="navbar-brand" href="#" style="color:white;"><span class="glyphicon glyphicon-home"></span>纯粹短租——纯粹干净看得见！</a>
+
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="#" style="color:white;" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-user" ></span> 注册</a></li>
+
+            <li><a href="#" style="color:white;" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" ></span> 登录</a></li>
+
+        </ul>
+
+    </div>
+
+</nav>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h5 class="modal-title" id="myModalLabel1">
+                    欢迎注册纯粹短租网：请输入您的邮箱
+                </h5>
+            </div>
+            <div class="modal-body">
+                    <input id="phone" type="text" name="user_phone" placeholder="请输入邮箱："/>
+                    <button id="button1" type="submit" formaction="#">获取验证码</button><p/>
+                    <input type="password" name="usr_password" placeholder="设置密码"><p/>
+                    <input type="submit" value="立即注册">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+    $(function () { $('#myModal1').modal('hide')});
+</script>
+<script>
+    $(function () { $('#myModal1').on('hide.bs.modal', function () {
+        alert('确定取消注册吗？');})
+    });
+</script>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                   您好！ 欢迎登录纯粹短租网！
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="text" name="user_id_number" placeholder="用户名"/><p/>
+                    <input type="password" name="usr_password" placeholder="密码"/><p/>
+                    <input type="submit" value="登录"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    提交更改
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+    $(function () { $('#myModal').modal('hide')});
+</script>
+<script>
+    $(function () { $('#myModal').on('hide.bs.modal', function () {
+        alert('确定取消登录吗？');})
+    });
+</script>
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="15.jpg" alt="First slide">
+        </div>
+        <div class="item">
+            <img src="22.jpg" alt="Second slide">
+        </div>
+        <div class="item">
+            <img src="24.jpg" alt="Third slide">
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+       data-slide="prev"> <span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="carousel-control right" href="#myCarousel"
+       data-slide="next">&rsaquo;</a>
+</div>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid" align="center">
+        <form class="navbar-form navbar-center" role="search">
+            <div>
+                <p class="navbar-text" style="color:white;" >请输入：</p>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="城市或目的地" name="city">
+                <input type="text" class="form-control" placeholder="选择入住日期" name="indate">
+            </div>
+            <button type="submit" class="btn btn-default" style="color:darkorange;" >进入搜索</button>
+        </form>
+    </div>
+</nav>
+
+
+<div class="row">
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="4.jpg"
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h5>简约大方风格</h5>
+                <p>￥290/晚</p>
+                <p>
+                    <a href="#" class="btn btn-default" role="button">
+                        查看详情
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="7.jpg"
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h5>温馨舒适风格</h5>
+                <p>￥280/晚</p>
+                <p>
+                    <a href="#" class="btn btn-default" role="button">
+                        查看详情
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="8.jpg"
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h5>商务办公风格</h5>
+                <p>￥300/晚</p>
+                <p>
+                    <a href="#" class="btn btn-default" role="button">
+                        查看详情
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <img src="47.jpg"
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h5>粉粉少女风格</h5>
+                <p>￥288/晚</p>
+                <p>
+                    <a href="#" class="btn btn-default" role="button">
+                        查看详情
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4 col-md">
+        <div class="thumbnail">
+            <img src="53.jpg"
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h5>干净整洁风格</h5>
+                <p>￥246/晚</p>
+                <p>
+                    <a href="#" class="btn btn-default" role="button">
+                        查看详情
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 col-md">
+        <div class="thumbnail">
+            <img src="50.jpg"
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h5>可爱活泼风格</h5>
+                <p>￥220/晚</p>
+                <p>
+                    <a href="#" class="btn btn-default" role="button">
+                        查看详情
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 col-md">
+        <div class="thumbnail">
+            <img src="27.jpg"
+                 alt="通用的占位符缩略图">
+            <div class="caption">
+                <h5>奢靡豪华风格</h5>
+                <p>￥498/晚</p>
+                <p>
+                    <a href="#" class="btn btn-default" role="button">
+                        查看详情
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--面板-->
+
+        <div class="panel panel-default">
+            <div class="panel-body" style="color:darkorange;">
+                <h2 align="center" >让分享和信赖悄然发生</h2>
+                <h6 align="center" >完善的安全机制和信用机制，帮助房客和房东</h6>
+                <div align="center">
+                     <span class="glyphicon glyphicon-user"></span> 双方实名认证     <span class="glyphicon glyphicon-lock"></span> 坚实保障后盾      <span class="glyphicon glyphicon-edit"></span> 点评累积信用     <span class="glyphicon glyphicon-usd"></span> 双方实名认证
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-sm-12 column">
+                    <div class="jumbotron">
+                        <h1 align="center">
+                            房客和房东都在彼此感动着
+                        </h1>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6 column" align="center">
+                            <h4>
+                                房东点评
+                            </h4>
+                            <p>
+                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            </p>
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#">Prev</a>
+                                </li>
+                                <li>
+                                    <a href="#">1</a>
+                                </li>
+                                <li>
+                                    <a href="#">2</a>
+                                </li>
+                                <li>
+                                    <a href="#">3</a>
+                                </li>
+                                <li>
+                                    <a href="#">4</a>
+                                </li>
+                                <li>
+                                    <a href="#">5</a>
+                                </li>
+                                <li>
+                                    <a href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 column" align="center">
+                            <h4>
+                                房客点评
+                            </h4>
+                            <p>
+                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            </p>
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#">Prev</a>
+                                </li>
+                                <li>
+                                    <a href="#">1</a>
+                                </li>
+                                <li>
+                                    <a href="#">2</a>
+                                </li>
+                                <li>
+                                    <a href="#">3</a>
+                                </li>
+                                <li>
+                                    <a href="#">4</a>
+                                </li>
+                                <li>
+                                    <a href="#">5</a>
+                                </li>
+                                <li>
+                                    <a href="#">Next</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="panel panel-default">
+    <div class="panel-body" style="color:darkorange;">
+        <h3 align="center" >关注我们 <span class="glyphicon glyphicon-user"></span>    <span class="glyphicon glyphicon-user"></span></h3>
+        <p align="center">
+            <a href="#">帮助中心     </a> <a href="#">关于我们     </a> <a href="#">房东/房客指南     </a> <a href="#">服务条款     </a> <a href="#">网站简介</a>
+        </p>
+    </div>
+</div>
+
+
+​
+
+</body>
+
